@@ -1,0 +1,55 @@
+﻿@page "/patients/update/{PatientId:int}"
+@inherits UpdatePatientPage
+
+<MudText Typo="Typo.h3">Atualizar Paciente</MudText>
+
+<MudPaper Class="pa-8 mt-4">
+
+    <EditForm Model="@InputModel" OnValidSubmit="OnValidSubmitAsync">
+        <DataAnnotationsValidator />
+
+        <MudTextField Label="Nome"
+                      Variant="Variant.Outlined"
+                      HelperText="Campo Obrigatório"
+                      @bind-Value="InputModel.Name"
+                      For="@(() => InputModel.Name)" />
+
+        <MudTextField Label="Documento"
+                      Variant="Variant.Outlined"
+                      HelperText="Campo Obrigatório"
+                      @bind-Value="InputModel.Document"
+                      Mask="@(new PatternMask("000.000.000-00"))"
+                      For="@(() => InputModel.Document)" />
+
+        <MudTextField Label="Email"
+                      Variant="Variant.Outlined"
+                      HelperText="Campo Obrigatório"
+                      @bind-Value="InputModel.Email"
+                      For="@(() => InputModel.Email)" />
+
+        <MudTextField Label="Celular"
+                      Variant="Variant.Outlined"
+                      HelperText="Campo Obrigatório"
+                      @bind-Value="InputModel.Phone"
+                      Mask="@(new PatternMask("(00) 0 0000-0000"))"
+                      For="@(() => InputModel.Phone)" />
+
+        <MudDatePicker Label="Data de Nascimento"
+                       Editable="false"
+                       @bind-Date="DateBirth"
+                       Variant="Variant.Outlined"
+                       MaxDate="@MaxDate"
+                       Placeholder="Data de Nascimento" />
+
+        <MudDivider Class="m-4" />
+
+        <MudButton Variant="Variant.Filled"
+                   StartIcon="@Icons.Material.Filled.Save"
+                   Color="Color.Info"
+                   Size="Size.Large"
+                   ButtonType="ButtonType.Submit">
+            SALVAR
+        </MudButton>
+
+    </EditForm>
+</MudPaper>

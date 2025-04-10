@@ -51,13 +51,13 @@ namespace ProConsulta.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8305f33b-5412-47d0-b4ab-17cf6867f2e2",
+                            Id = "04f1966f-0c94-4999-a602-d81ee9332fa7",
                             Name = "Atendente",
                             NormalizedName = "ATENDENTE"
                         },
                         new
                         {
-                            Id = "00043fbd-e5e1-49eb-836-8375610584f1",
+                            Id = "00011110-c371-499c-88bf-4faf4f57e9c9",
                             Name = "Medico",
                             NormalizedName = "MEDICO"
                         });
@@ -152,8 +152,8 @@ namespace ProConsulta.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "95433ac4-2fe9-468f-b80d-b05ec3724d1d",
-                            RoleId = "8305f33b-5412-47d0-b4ab-17cf6867f2e2"
+                            UserId = "33f0ef9f-3d09-48ba-86d6-500a130e569c",
+                            RoleId = "04f1966f-0c94-4999-a602-d81ee9332fa7"
                         });
                 });
 
@@ -380,62 +380,62 @@ namespace ProConsulta.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Especialidade médica que trata doenças do coração e do sistema cardiovascular.",
+                            Description = "Especialidade médica que cuida do coração",
                             Name = "Cardiologia"
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Especialidade médica que trata doenças da pele, cabelo e unhas.",
+                            Description = "Especialidade que trata de doenças e condições da pele.",
                             Name = "Dermatologia"
                         },
                         new
                         {
                             Id = 3,
-                            Description = "Especialidade médica que trata doenças do sistema digestivo.",
-                            Name = "Gastroenterologia"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Especialidade médica que trata doenças do sistema nervoso.",
-                            Name = "Neurologia"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Especialidade médica que trata doenças e lesões do sistema musculoesquelético.",
+                            Description = "Especialidade focada no tratamento de ossos, músculos .",
                             Name = "Ortopedia"
                         },
                         new
                         {
-                            Id = 6,
-                            Description = "Especialidade médica que trata de crianças e adolescentes.",
+                            Id = 4,
+                            Description = "Área médica voltada ao cuidado da saúde infantil.",
                             Name = "Pediatria"
                         },
                         new
                         {
+                            Id = 5,
+                            Description = "Especialidade que trata da saúde do sistema reprodutor feminino.",
+                            Name = "Ginecologia"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Área da medicina que trata do sistema nervoso.",
+                            Name = "Neurologia"
+                        },
+                        new
+                        {
                             Id = 7,
-                            Description = "Especialidade médica que trata de doenças mentais e distúrbios emocionais.",
+                            Description = "Especialidade que cuida da saúde mental e transtornos psicológicos.",
                             Name = "Psiquiatria"
                         },
                         new
                         {
                             Id = 8,
-                            Description = "Especialidade médica que trata doenças nos olhos",
+                            Description = "Especialidade dedicada ao cuidado da visão e dos olhos.",
                             Name = "Oftalmologia"
                         },
                         new
                         {
                             Id = 9,
-                            Description = "Especialidade médica que trata do sistema reprodutor feminino.",
-                            Name = "Ginecologia"
+                            Description = "Especialidade que trata das glândulas e hormônios do corpo.",
+                            Name = "Endocrinologia"
                         },
                         new
                         {
                             Id = 10,
-                            Description = "Especialidade médica que trata do câncer.",
-                            Name = "Oncologia"
+                            Description = "Área médica que cuida do sistema digestivo.",
+                            Name = "Gastroenterologia"
                         });
                 });
 
@@ -452,19 +452,19 @@ namespace ProConsulta.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "95433ac4-2fe9-468f-b80d-b05ec3724d1d",
+                            Id = "33f0ef9f-3d09-48ba-86d6-500a130e569c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "04038210-71cc-40b2-babc-32f2bd442630",
-                            Email = "proconsulta@hotmail.com.br",
+                            ConcurrencyStamp = "e6c0d9fc-696c-4c71-95b2-449ab4527cc7",
+                            Email = "proconsulta@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "PROCONSULTA@HOTMAIL.COM.BR",
-                            NormalizedUserName = "PROCONSULTA@HOTMAIL.COM.BR",
-                            PasswordHash = "AQAAAAIAAYagAAAAECeCs1qt1ojFISI22dkGTswtIZHfjMR+cNap8mXDw8cAxbNsias9qQfbQ4h7V5CdXg==",
+                            NormalizedEmail = "PROCONSULTA@GMAIL.COM.BR",
+                            NormalizedUserName = "PROCONSULTA@GMAIL.COM.BR",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAXAYBF/a9HPB19/GPcG175gUiLrX0FNX5MivhghwE3kawPoHle/hzobFTIuU2CfLw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e5227707-65e5-49bd-b45f-2c6b453d0386",
+                            SecurityStamp = "5f0aad83-99ab-43ae-ad7f-947b9ffd52ef",
                             TwoFactorEnabled = false,
-                            UserName = "proconsulta@hotmail.com.br",
+                            UserName = "proconsulta@gmail.com.br",
                             Name = "Pro Consulta"
                         });
                 });

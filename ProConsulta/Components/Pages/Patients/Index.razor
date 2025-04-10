@@ -1,0 +1,39 @@
+﻿@page "/patients"
+@inherits IndexPage // vincula o nosso frontend com o nosso back, ele traz infomrações da classe pai para passar ao componente filho
+
+<MudText Typo="Typo.h3">Pacientes</MudText>
+
+<MudButton Variant="Variant.Filled"
+StartIcon="@Icons.Material.Filled.Add"
+Color="Color.Info"
+Size="Size.Large"
+Href="/patients/create"
+Class="mt-md-4 mb-4">Novo Paciente</MudButton>
+
+<MudDataGrid Items="@Patients" Filterable="false" SortMode="SortMode.Single" Groupable="false">
+    <Columns>
+        <PropertyColumn Property="x => x.Name"/>
+        <PropertyColumn Property="x => x.Documents"/>
+        <PropertyColumn Property="x => x.Email"/>
+        <PropertyColumn Property="x => x.Phone"/>
+        <PropertyColumn Property="x => x.DateBirth" Format="dd/MM/yyyy"/>
+        <TemplateColumn>
+            <CellTemplate>
+                <MudStack Row>
+                    <MudFab Size="Size.Small" 
+                            Label="Editar" 
+                            @onclick="@(() => GoToUpdate(context.Item.Id))" 
+                            StartIcon="@Icons.Material.Filled.Edit"
+                            Color="Color.Success"/>
+
+                    <MudFab Size="Size.Small"
+                            Label="Excluir"
+                            @onclick="@(() => DelegatePatient(context.Item))"
+                            StartIcon="@Icons.Material.Filled.Delete"
+                            Color="Color.Error"></MudFab>
+
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+    </Columns>
+</MudDataGrid>

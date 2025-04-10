@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProConsulta.Models;
 using System.Reflection;
+using System.Reflection.Emit;
 
 namespace ProConsulta.Data
 {
@@ -15,11 +17,15 @@ namespace ProConsulta.Data
 
         protected override void OnModelCreating(ModelBuilder builder) // método que faz a leitura das configurações e que os traga para o nosso banco de dados ao ser iniciada a aplicaçãpo
         {
-            base.OnModelCreating(builder);
-            
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
+            base.OnModelCreating(builder);
+
             new DbInitializer(builder).seed(); // graças a ele, quando eu rodar o meu banco de dados ele já vai iniciar com alguns dados 
+
+            builder.Entity<IdentityUserLogin<string>>()
+            .HasKey(l => new { l.LoginProvider, l.ProviderKey });
+
         }
     }
 }
