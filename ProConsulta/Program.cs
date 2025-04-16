@@ -6,11 +6,15 @@ using MudBlazor.Services;
 using ProConsulta.Components;
 using ProConsulta.Components.Account;
 using ProConsulta.Data;
+using ProConsulta.Models;
 using ProConsulta.Repositories;
 using ProConsulta.Repositories.Doctors;
 using ProConsulta.Repositories.Patients;
 using ProConsulta.Repositories.Schedulings;
 using ProConsulta.Repositories.Specialitys;
+using ProConsulta.Components.Account.Shared;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,16 +52,27 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+//builder.Services.AddIdentity<Attendant, IdentityRole>()
 builder.Services.AddIdentityCore<ApplicationUser>()
-    .AddRoles<IdentityRole>()                            // LINHA ADICIONADA
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddSignInManager()
-    .AddRoleManager<RoleManager<IdentityRole>>()        // LINHA ADICIONADA
+    .AddSignInManager<SignInManager<ApplicationUser>>()
+    .AddRoleManager<RoleManager<IdentityRole>>()
     .AddDefaultTokenProviders();
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+    await SeedIdentityData.SeedUserAsync(userManager, roleManager);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

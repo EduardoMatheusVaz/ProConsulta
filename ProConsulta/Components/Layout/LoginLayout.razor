@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using MudBlazor
+@inherits LayoutComponentBase
+
+<MudThemeProvider IsDarkMode="true"/>
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+
+<MudLayout>
+    <MudAppBar>
+        <MudText Typo="Typo.h6" Class="ml-3">Pro Consulta</MudText>
+        <MudSpacer />
+        <MudIconButton Icon="@Icons.Material.Filled.Home" Href="/" Color="Color.Inherit" Edge="Edge.End" />
+    </MudAppBar>
+
+    <MudMainContent Class="mt-16 pa-4">
+        @Body
+    </MudMainContent>
+
+</MudLayout>
