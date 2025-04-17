@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using MudBlazor;
 using ProConsulta.Models;
 using ProConsulta.Repositories;
@@ -21,6 +22,11 @@ namespace ProConsulta.Components.Pages.Patients
         public NavigationManager NavigationManager { get; set; } = null!;
 
         public List<Patient> Patients { get; set; } = new();
+
+        public bool HideButtons { get; set; }
+
+        [CascadingParameter]
+        private Task<AuthenticationState> AuthenticationState { get; set; }
 
         public async Task DelegatePatient(Patient patient)
         {
@@ -54,6 +60,10 @@ namespace ProConsulta.Components.Pages.Patients
 
         protected override async Task OnInitializedAsync()
         {
+            var auth = await AuthenticationState;
+
+            HideButtons = !auth.User.IsInRole("Atendente"); /*se !auth.User.IsInROle for diferente de "Atendente", o HideButton passa a ser true e assim nós escondemos os botões*/
+
             Patients = await repository.GetAllAsync();
         }
 

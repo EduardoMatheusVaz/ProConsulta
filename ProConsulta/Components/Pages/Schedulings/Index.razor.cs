@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using MudBlazor;
 using ProConsulta.Models;
 using ProConsulta.Repositories.Schedulings;
@@ -23,8 +24,17 @@ namespace ProConsulta.Components.Pages.Schedulings
 
         public List<Scheduling> Schedulings = new List<Scheduling>();
 
+        [CascadingParameter]
+        private Task<AuthenticationState> AuthenticationState { get; set; }
+
+        public bool HidenButtons { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
+            var auth = await AuthenticationState;
+
+            HidenButtons = !auth.User.IsInRole("Atendente");
+
             Schedulings = await repository.GetAllAsync();
         }
 

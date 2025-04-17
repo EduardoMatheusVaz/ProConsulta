@@ -8,5 +8,6 @@ namespace ProConsulta.Repositories.Schedulings
         Task<List<Scheduling>> GetAllAsync();
         Task DeleteByIdAsync(int id);
         Task<Scheduling?> GetByIdAsync(int id);
+        Task<List<AnnualSchedules>> GetReportAsync();
     }
 }

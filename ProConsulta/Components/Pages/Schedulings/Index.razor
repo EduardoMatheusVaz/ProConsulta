@@ -35,6 +35,7 @@ Class="mt-md-4 mb-4">Novo Agendamento</MudButton>
                 <MudFab Size="Size.Small"
                         @OnClick="@(() => DeleteSchedulingAsync(agendamento))" 
                         StartIcon="@Icons.Material.Filled.Delete"
+                        hidden="@HidenButtons"
                         Color="Color.Error"/>
             </MudStack>
 
